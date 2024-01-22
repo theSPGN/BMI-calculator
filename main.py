@@ -1,5 +1,6 @@
 from bmi import BodyMassIndex as Bmi
 from bmr import Bmr
+
 p1 = Bmi("Taylor", 74.1, 185.5)
 p2 = Bmr(p1, "male", 18)
 # Reference to parent function:

@@ -11,10 +11,17 @@ class Bmr(BodyMassIndex):
         self.bmr = float
 
     def calculate_bmr(self) -> float:
-        if self.gender == 'male' or self.gender == 'Male':
-            self.bmr = 66.5 + (13.75 * self.weight) + (5.003 * self.height) - (6.75 * self.age)
+        if self.gender == "male" or self.gender == "Male":
+            self.bmr = (
+                66.5 + (13.75 * self.weight) + (5.003 * self.height) - (6.75 * self.age)
+            )
         else:
-            self.bmr = 655.1 + (9.563 * self.weight) + (1.850 * self.height) - (4.676 * self.age)
+            self.bmr = (
+                655.1
+                + (9.563 * self.weight)
+                + (1.850 * self.height)
+                - (4.676 * self.age)
+            )
         return float("%.2f" % self.bmr)
 
     def exercises(self, frequency=0) -> float:
@@ -35,7 +42,9 @@ class Bmr(BodyMassIndex):
         return float("%.2f" % bmr_with_exercises)
 
     def prepare_to_save(self) -> str:
-        return BodyMassIndex.prepare_to_save(self) + str(self.exercises()) + ' kcal' + '\n'
+        return (
+            BodyMassIndex.prepare_to_save(self) + str(self.exercises()) + " kcal" + "\n"
+        )
         # return super(Bmr, self).prepare_to_save() + str(self.exercises()) + ' kcal' + '\n'
         # return super().prepare_to_save() + str(self.exercises()) + ' kcal' + '\n'
 

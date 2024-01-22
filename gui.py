@@ -5,21 +5,25 @@ from bmr import Bmr
 
 
 def get_information():
-    p2 = Bmr(Bmi(name.get(), float(weight.get()), float(height.get())), gender.get(), int(age.get()))
+    p2 = Bmr(
+        Bmi(name.get(), float(weight.get()), float(height.get())),
+        gender.get(),
+        int(age.get()),
+    )
     p2.save()
-    string_val = "Your bmi is: " + str(p2.info()[3]) + "    " + p2.is_right()
-    my_label = Label(root, text=string_val, bg='grey')
+    string_val = f"Your bmi is: {str(p2.info()[3])}        {p2.is_right()}"
+    my_label = Label(root, text=string_val, bg="grey")
     my_label.pack(pady=10)
-    string_val_2 = "Your bmr is: " + str(p2.info()[6]) + " kcal"
-    my_label_2 = Label(root, text=string_val_2, bg='grey')
+    string_val_2 = f"Your bmr is: {str(p2.info()[6])} kcal"
+    my_label_2 = Label(root, text=string_val_2, bg="grey")
     my_label_2.pack(pady=10)
 
 
 root = Tk()
-root.geometry('350x350')
-root.configure(bg='white')
+root.geometry("350x350")
+root.configure(bg="white")
 
-name = Entry(root, width=50, )
+name = Entry(root, width=50)
 name.insert(0, "Enter your name:")
 name.bind("<Button-1>", lambda e: name.delete(0, END))
 name.pack(pady=10)
@@ -44,7 +48,7 @@ age.insert(0, "Enter your age:")
 age.bind("<Button-1>", lambda e: age.delete(0, END))
 age.pack(pady=10)
 
-myButton = Button(root, width=20, text="OK", bg='white', command=get_information)
+myButton = Button(root, width=20, text="OK", bg="white", command=get_information)
 myButton.pack(pady=10)
 
 root.mainloop()

@@ -2,7 +2,7 @@ import datetime
 
 
 class BodyMassIndex:
-    def __init__(self, name='name', weight=71.3, height=180.5):
+    def __init__(self, name="name", weight=71.3, height=180.5):
         self.name = name
         self.weight = weight
         self.height = height
@@ -32,11 +32,19 @@ class BodyMassIndex:
             return "Too high weight (Really danger)"
 
     def prepare_to_save(self) -> str:
-        return str(self.weight) + 'kg ' + str(self.height) + 'cm ' + str(self.calculuate_bmi()) + ' ' + str(
-            datetime.date.today()) + '  '
+        return (
+            str(self.weight)
+            + "kg "
+            + str(self.height)
+            + "cm "
+            + str(self.calculuate_bmi())
+            + " "
+            + str(datetime.date.today())
+            + "  "
+        )
 
     def save(self):
-        file = open(self.name + '.txt', 'a')
+        file = open(self.name + ".txt", "a")
         p = self.prepare_to_save()
         file.write(p)
         file.close()
